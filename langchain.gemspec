@@ -29,7 +29,10 @@ Gem::Specification.new do |spec|
   # Not sure if we should require this as it only applies to OpenAI usecase.
   spec.add_dependency "baran", "~> 0.1.9"
   spec.add_dependency "colorize", "~> 1.1.0"
-  spec.add_dependency "tiktoken_ruby", "~> 0.0.7"
+  # We don't use the validator and the install fails on heroku
+  # due to missing clang. Adding clang makes the slug > 500MB and
+  # the slug build fails, so this is just the easiest workaround
+  # spec.add_dependency "tiktoken_ruby", "~> 0.0.7"
   spec.add_dependency "json-schema", "~> 4.0.0"
   spec.add_dependency "zeitwerk", "~> 2.5"
   spec.add_dependency "pragmatic_segmenter", "~> 0.3.0"
